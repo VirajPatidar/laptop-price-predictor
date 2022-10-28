@@ -2,11 +2,26 @@ import streamlit as st
 import pickle
 import numpy as np
 
+
+
 # import the model
 pipe = pickle.load(open('pipe.pkl','rb'))
 df = pickle.load(open('df.pkl','rb'))
 
-st.title("Laptop Predictor")
+
+
+st.set_page_config(
+    page_title="Laptop Price Predictor",
+    menu_items={
+        'Report a bug': 'https://github.com/VirajPatidar/laptop-price-predictor',
+        'Get help': 'https://github.com/VirajPatidar/laptop-price-predictor',
+        'About': "Laptop Price Predictor \n https://github.com/VirajPatidar/laptop-price-predictor  \n\n:)"
+    }
+)
+
+
+
+st.title("Laptop Price Predictor")
 
 # brand
 company = st.selectbox('Brand',df['Company'].unique())
@@ -43,6 +58,8 @@ gpu = st.selectbox('GPU',df['Gpu brand'].unique())
 
 os = st.selectbox('OS',df['os'].unique())
 
+
+
 if st.button('Predict Price'):
     # query
     ppi = None
@@ -60,6 +77,8 @@ if st.button('Predict Price'):
     Y_res = int(resolution.split('x')[1])
     ppi = ((X_res**2) + (Y_res**2))**0.5/screen_size
     query = np.array([company,type,ram,weight,touchscreen,ips,ppi,cpu,hdd,ssd,gpu,os])
+
+
 
     query = query.reshape(1,12)
     st.title("The predicted price of this configuration is " + str(int(np.exp(pipe.predict(query)[0]))))
