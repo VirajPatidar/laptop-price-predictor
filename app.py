@@ -15,7 +15,7 @@ st.set_page_config(
     menu_items={
         'Report a bug': 'https://github.com/VirajPatidar/laptop-price-predictor',
         'Get help': 'https://github.com/VirajPatidar/laptop-price-predictor',
-        'About': "Laptop Price Predictor \n https://github.com/VirajPatidar/laptop-price-predictor  \n\n:)"
+        'About': "Laptop Price Predictor \n\n https://github.com/VirajPatidar/laptop-price-predictor  \n\n:)"
     }
 )
 
