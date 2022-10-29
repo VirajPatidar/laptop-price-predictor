@@ -81,4 +81,8 @@ if st.button('Predict Price'):
 
 
     query = query.reshape(1,12)
-    st.title("The predicted price of this configuration is " + str(int(np.exp(pipe.predict(query)[0]))))
+    st.title("The predicted price of this configuration is ₹" + str(int(np.exp(pipe.predict(query)[0]))))
+
+    #predicted_price = str(int(np.exp(pipe.predict(query)[0])))
+    #st.balloons()
+    #st.success("The predicted price of this configuration is: ₹" + predicted_price)
